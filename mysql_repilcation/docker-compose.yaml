@@ -1,0 +1,39 @@
+version: '2.1'
+
+services:
+  mysql-master:
+    container_name: master
+    image: mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - ./master.cnf:/etc/mysql/conf.d/master.cnf
+    environment:
+      - MYSQL_REPLICATION_MODE=master
+      - MYSQL_REPLICATION_USER=repl_user
+      - MYSQL_USER=my_user
+      - MYSQL_DATABASE=my_database
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=Password0987
+
+  mysql-slave:
+    image: mysql
+    container_name: slave
+    ports:
+      - 3308:3306
+    volumes:
+      - ./slave.cnf:/etc/mysql/conf.d/slave.cnf
+    depends_on:
+      - mysql-master
+    environment:
+      - MYSQL_REPLICATION_MODE=slave
+      - MYSQL_REPLICATION_USER=repl_user
+      - MYSQL_USER=my_user
+      - MYSQL_DATABASE=my_database
+      - MYSQL_MASTER_HOST=master
+      - MYSQL_MASTER_PORT_NUMBER=3306
+      - MYSQL_MASTER_ROOT_PASSWORD=my_root_password
+      - MYSQL_ROOT_PASSWORD=Password0987
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes

@@ -1,0 +1,8 @@
+[mysqld]
+server-id         = 42
+log_bin           = mysql-bin
+binlog_format     = ROW
+expire_logs_days  = 10
+binlog_do_db      = my_database
+binlog_do_db      = db_web
+relay-log         = /var/log/mysql/mysql-relay-bin.log

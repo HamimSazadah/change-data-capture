@@ -1,0 +1,22 @@
+version: "3"
+services:
+  notebook:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    container_name: notebook
+    environment:
+      - MYSQL_ROOT_PASSWORD=Password0987
+      - MYSQL_DATABASE=my_database
+    ports:
+      - 8888:8888
+    volumes:
+      - ./notebook:/home/jovyan
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - 3309:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=Password0987
+      - MYSQL_DATABASE=my_database

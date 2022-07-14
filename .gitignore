@@ -1,0 +1,7 @@
+mysql_data
+.cache
+.ipynb_checkpoints
+.ipython
+.jupyter
+.local
+__pycache__

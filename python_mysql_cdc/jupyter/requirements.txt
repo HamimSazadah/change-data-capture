@@ -1,0 +1,6 @@
+mysqlclient>=2.1.0
+ipython-sql>=0.4.1
+pymysql>=1.0.2
+SQLAlchemy>=1.4.37
+mysql-replication>=0.30
+cryptography>=37.0.4
