@@ -13,14 +13,16 @@
 1. Login in Master username `root` and password `Password0987` port `3307` host `127.0.0.1`
    ![Master](img/master.png)
 2. Create user and give grant for replication
-   ```
+   ```sql
    CREATE USER 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
    GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+   ```
 
 3. Check master status and use database my_database
-    ```
+    ```sql
     SHOW MASTER STATUS;
     USE my_database;
+    ```
 ![Binlog](img/binlog.png)
 
 ### On Slave
@@ -28,7 +30,8 @@
 ![slave](img/slave.png)
 2. Config for replication
     
-    ```CHANGE REPLICATION SOURCE TO
+    ```sql 
+    CHANGE REPLICATION SOURCE TO
     SOURCE_HOST='master',
     SOURCE_USER='replica_user',
     SOURCE_PASSWORD='password',
@@ -36,9 +39,10 @@
     SOURCE_LOG_POS=668;
     ```
 3. Start Replication
-    ```
+    ```sql
     START REPLICA;
     SHOW REPLICA STATUS;
+    ```
 ![Replication](img/replication.png)
 
 
