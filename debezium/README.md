@@ -18,5 +18,5 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 
 
 References :
--  [Debezium Unwrap SMT Demo]([https://](https://github.com/debezium/debezium-examples/tree/main/unwrap-smt))
+-  [Debezium Unwrap SMT Demo](https://github.com/debezium/debezium-examples/tree/main/unwrap-smt)
 -  [Debezium Documentation](https://debezium.io/documentation/reference/stable/index.html)
