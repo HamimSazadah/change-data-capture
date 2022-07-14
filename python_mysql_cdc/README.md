@@ -2,7 +2,7 @@
  - docker-compose
 ## How to Use
 1. Deploy the docker by `docker-compose up -d`
-2. wait until all service running
+2. wait until all service running <br/>
 ![Run](img/run.png)
 3. Clik on notebook pod, to get url n token jupyter notebook
 ![Url](img/url.png)
